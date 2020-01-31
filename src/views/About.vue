@@ -17,7 +17,7 @@
 		      </b-card>
 
 		      <b-card bg-variant="secondary" text-variant="white" header="Secondary" class="text-center">
-		        <b-card-text>{{testData}} aslkdjfh</b-card-text>
+		        <b-card-text>{{testDataDef}}</b-card-text>
 		        <b-button @click="getDataTest">Axios tets</b-button>
 		      </b-card>
 
@@ -64,7 +64,7 @@
 	import store from '../store'
     export default {
         computed : {
-        	testData: function(){ return store.getters.testData }
+
         },
         components : {
 
@@ -72,6 +72,7 @@
         data() {
             return {
                 data1: 'Hola',
+
             }
         },
         beforeCreate(){
@@ -119,9 +120,9 @@
 				store.state.exampleText = 'other text changed'
 			},
 			getDataTest() {
+				console.warn("entra")
 				store.dispatch('getTestData')
 				.then(function(res) {
-					console.log(this.testData)
 				})
 		       .catch(err => alert(err))
 
